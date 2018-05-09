@@ -8,4 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="LayoutContent">
+        <item name="android:layout_margin">@dimen/margin_medium</item>
+    </style>
+    
+    <style name="InputText" parent="Widget.Design.TextInputLayout">
+        <item name="android:layout_marginBottom">@dimen/margin_medium</item>
+    </style>
+
+    <style name="ButtonConfirm">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_margin">@dimen/margin_small</item>
+        <item name="android:colorBackground">@color/colorPrimaryDark</item>
+        <item name="android:text">@string/button_confirm</item>
+        <item name="android:textSize">@dimen/text_xlarge</item>
+    </style>
+
 </resources>

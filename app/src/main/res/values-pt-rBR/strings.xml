@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Desafio Banking</string>
+
+    <string name="user_name_hint">Seu nome completo</string>
+    <string name="user_email_hint">Seu email para contato</string>
+    <string name="user_cpf_hint">Seu CPF</string>
+    <string name="button_confirm">CONFIRMAR</string>
+</resources>
