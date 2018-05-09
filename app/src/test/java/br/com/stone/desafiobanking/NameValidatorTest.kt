@@ -1,5 +1,6 @@
 package br.com.stone.desafiobanking
 
+import br.com.stone.desafiobanking.core.util.NameValidator
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test

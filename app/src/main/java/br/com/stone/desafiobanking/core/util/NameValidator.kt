@@ -1,4 +1,4 @@
-package br.com.stone.desafiobanking
+package br.com.stone.desafiobanking.core.util
 
 /**
  * Created on 09/05/2018

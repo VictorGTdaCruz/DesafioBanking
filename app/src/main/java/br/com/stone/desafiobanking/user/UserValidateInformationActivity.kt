@@ -1,10 +1,11 @@
-package br.com.stone.desafiobanking
+package br.com.stone.desafiobanking.user
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import br.com.stone.desafiobanking.R
 import kotlinx.android.synthetic.main.activity_user_validate_information.*
 
 class UserValidateInformationActivity : AppCompatActivity() {
