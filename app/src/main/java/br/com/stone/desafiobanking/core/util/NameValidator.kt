@@ -9,19 +9,15 @@ package br.com.stone.desafiobanking.core.util
 
 class NameValidator {
 
-    companion object {
-
-        fun validate(name: String): Boolean{
-            if (name.length in 4..60){
-                val nameSplit = name.split(" ")
-                if(nameSplit.size > 1 && !nameSplit[1].isEmpty()){
-                    return true
-                }
+    fun validate(name: String): Boolean{
+        if (name.length in 4..60){
+            val nameSplit = name.split(" ")
+            if(nameSplit.size > 1 && !nameSplit[1].isEmpty()){
+                return true
             }
-
-            return false
         }
 
+        return false
     }
 
 }
