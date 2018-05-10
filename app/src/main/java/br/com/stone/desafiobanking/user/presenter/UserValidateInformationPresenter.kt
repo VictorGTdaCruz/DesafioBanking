@@ -10,9 +10,9 @@ interface UserValidateInformationPresenter {
 
     fun userNameChanged(name: String)
 
-    fun userEmailChanged(name: String)
+    fun userEmailChanged(email: String)
 
-    fun userCPFChanged(name: String)
+    fun userCPFChanged(CPF: String)
 
     fun performValidation()
 
