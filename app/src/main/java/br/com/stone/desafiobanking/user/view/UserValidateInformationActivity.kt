@@ -1,4 +1,4 @@
-package br.com.stone.desafiobanking.user
+package br.com.stone.desafiobanking.user.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.view.View
 import br.com.stone.desafiobanking.R
 import kotlinx.android.synthetic.main.activity_user_validate_information.*
 
-class UserValidateInformationActivity : AppCompatActivity() {
+class UserValidateInformationActivity : AppCompatActivity(), UserValidateInformationView{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +23,22 @@ class UserValidateInformationActivity : AppCompatActivity() {
         edit_name.addTextChangedListener(editCPFOnTextChangedListener())
         btn_confirm.setOnClickListener(btnConfirmOnClickListener())
 
+    }
+
+    override fun onCPFInvalid() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onNameInvalid() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onEmailInvalid() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onReadyToValidate() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     private fun editNameOnTextChangedListener(): TextWatcher{
