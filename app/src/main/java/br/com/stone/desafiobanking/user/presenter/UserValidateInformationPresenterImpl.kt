@@ -12,25 +12,65 @@ import br.com.stone.desafiobanking.user.view.UserValidateInformationView
  * @email victor.cruz@stone.com.br
  */
 
-class UserValidateInformationPresenterImpl(mView: UserValidateInformationView,
-                                           mNameValidator: NameValidator,
-                                           mEmailValidator: EmailValidator,
-                                           mCPFValidator: CPFValidator): UserValidateInformationPresenter {
+class UserValidateInformationPresenterImpl(var mView: UserValidateInformationView,
+                                           var mNameValidator: NameValidator,
+                                           var mEmailValidator: EmailValidator,
+                                           var mCPFValidator: CPFValidator): UserValidateInformationPresenter {
+
+    private var mNameValidated = false
+    private var mEmailValidated = false
+    private var mCPFValidated = false
+
+    init {
+        mView.onNotReadyToValidate()
+    }
 
     override fun userNameChanged(name: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if (mNameValidator.validate(name)){
+            mView.onNameValid()
+            mNameValidated = true
+        } else {
+            mView.onNameInvalid()
+            mNameValidated = false
+        }
+
+        isReadyToValidate()
     }
 
-    override fun userEmailChanged(name: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun userEmailChanged(email: String) {
+        if (mEmailValidator.validate(email)){
+            mView.onEmailValid()
+            mEmailValidated = true
+        } else {
+            mView.onEmailInvalid()
+            mEmailValidated = false
+        }
+
+        isReadyToValidate()
     }
 
-    override fun userCPFChanged(name: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun userCPFChanged(CPF: String) {
+        if (mCPFValidator.validate(CPF)){
+            mView.onCPFValid()
+            mCPFValidated = true
+        } else {
+            mView.onCPFInvalid()
+            mCPFValidated = false
+        }
+
+        isReadyToValidate()
     }
 
     override fun performValidation() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mView.onInformationValidated()
     }
-    
+
+    private fun isReadyToValidate(){
+        if (mNameValidated && mEmailValidated && mCPFValidated){
+            mView.onReadyToValidate()
+        } else {
+            mView.onNotReadyToValidate()
+        }
+    }
+
 }

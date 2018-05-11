@@ -8,12 +8,22 @@ package br.com.stone.desafiobanking.user.view
  */
 interface UserValidateInformationView {
 
-    fun onCPFInvalid()
-
     fun onNameInvalid()
 
     fun onEmailInvalid()
 
+    fun onCPFInvalid()
+
     fun onReadyToValidate()
+
+    fun onNameValid()
+
+    fun onEmailValid()
+
+    fun onCPFValid()
+
+    fun onNotReadyToValidate()
+
+    fun onInformationValidated()
 
 }
