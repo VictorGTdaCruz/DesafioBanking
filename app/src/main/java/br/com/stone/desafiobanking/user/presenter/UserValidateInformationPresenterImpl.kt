@@ -72,7 +72,7 @@ class UserValidateInformationPresenterImpl(var mView: UserValidateInformationVie
 
     override fun performValidation() {
         //save information
-        mView.resetViewState()
+        mView.onInformationValidated()
     }
 
     private fun isReadyToValidate(){

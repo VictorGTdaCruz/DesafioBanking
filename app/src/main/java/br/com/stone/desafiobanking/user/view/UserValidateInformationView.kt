@@ -30,6 +30,6 @@ interface UserValidateInformationView {
 
     fun onCPFEmpty()
 
-    fun resetViewState()
+    fun onInformationValidated()
 
 }

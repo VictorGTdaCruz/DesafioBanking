@@ -82,7 +82,7 @@ class UserValidateInformationActivity : AppCompatActivity(), UserValidateInforma
         btn_confirm.isEnabled = false
     }
 
-    override fun resetViewState() {
+    override fun onInformationValidated() {
         edit_name.setText("")
         edit_email.setText("")
         edit_cpf.setText("")
