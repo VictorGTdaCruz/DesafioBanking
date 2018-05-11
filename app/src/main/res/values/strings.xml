@@ -7,4 +7,9 @@
 
     <string name="button_confirm">DONE</string>
 
+    <!-- Dialog -->
+    <string name="dialog_title">Congratz!</string>
+    <string name="dialog_message">Your information has been validated</string>
+    <string name="dialog_button">DONE</string>
+
 </resources>

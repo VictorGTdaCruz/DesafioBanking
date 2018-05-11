@@ -24,6 +24,12 @@ interface UserValidateInformationView {
 
     fun onNotReadyToValidate()
 
-    fun onInformationValidated()
+    fun onNameEmpty()
+
+    fun onEmailEmpty()
+
+    fun onCPFEmpty()
+
+    fun resetViewState()
 
 }

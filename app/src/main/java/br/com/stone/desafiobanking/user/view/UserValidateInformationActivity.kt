@@ -1,8 +1,9 @@
 package br.com.stone.desafiobanking.user.view
 
+import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
+import android.support.v7.app.AlertDialog
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -60,25 +61,32 @@ class UserValidateInformationActivity : AppCompatActivity(), UserValidateInforma
         validEditText(edit_cpf)
     }
 
+    override fun onNameEmpty() {
+        resetEditTextIcon(edit_name)
+    }
+
+    override fun onEmailEmpty() {
+        resetEditTextIcon(edit_email)
+    }
+
+    override fun onCPFEmpty() {
+        resetEditTextIcon(edit_cpf)
+    }
+
     override fun onReadyToValidate() {
-        btn_confirm.setBackgroundColor(ContextCompat.getColor(this, R.color.green))
-        btn_confirm.isClickable = true
+        btn_confirm.isEnabled = true
     }
 
     override fun onNotReadyToValidate() {
         btn_confirm.setBackgroundResource(android.R.drawable.btn_default)
-        btn_confirm.isClickable = false
+        btn_confirm.isEnabled = false
     }
 
-    override fun onInformationValidated() {
+    override fun resetViewState() {
         edit_name.setText("")
         edit_email.setText("")
         edit_cpf.setText("")
-        resetEditText(edit_name)
-        resetEditText(edit_email)
-        resetEditText(edit_cpf)
-        onNotReadyToValidate()
-        // show dialog
+        edit_name.requestFocus()
     }
 
     private fun editNameOnTextChangedListener(): TextWatcher{
@@ -125,7 +133,20 @@ class UserValidateInformationActivity : AppCompatActivity(), UserValidateInforma
 
     private fun btnConfirmOnClickListener(): View.OnClickListener{
         return View.OnClickListener {
-            mPresenter.performValidation()
+            val builder = AlertDialog.Builder(this)
+            builder.setCancelable(false)
+                    .setTitle(getString(R.string.dialog_title))
+                    .setMessage(getString(R.string.dialog_message))
+                    .setPositiveButton(getString(R.string.dialog_button), btnDialogOnClickListener())
+                    .show()
+        }
+    }
+
+    private fun btnDialogOnClickListener(): DialogInterface.OnClickListener{
+        return object: DialogInterface.OnClickListener{
+            override fun onClick(p0: DialogInterface?, p1: Int) {
+                mPresenter.performValidation()
+            }
         }
     }
 
@@ -137,7 +158,7 @@ class UserValidateInformationActivity : AppCompatActivity(), UserValidateInforma
         editText.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, getDrawable(R.drawable.ic_not_interested_black_24dp), null)
     }
 
-    private fun resetEditText(editText: EditText){
+    private fun resetEditTextIcon(editText: EditText){
         editText.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, null, null)
     }
 

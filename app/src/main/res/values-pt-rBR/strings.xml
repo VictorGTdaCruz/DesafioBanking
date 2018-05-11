@@ -6,4 +6,7 @@
     <string name="user_email_hint">Seu email para contato</string>
     <string name="user_cpf_hint">Seu CPF</string>
     <string name="button_confirm">CONFIRMAR</string>
+    <string name="dialog_title">Parabéns!</string>
+    <string name="dialog_message">Seus dados estão validados</string>
+    <string name="dialog_button">CONCLUIR</string>
 </resources>
