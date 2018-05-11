@@ -32,6 +32,9 @@ class UserValidateInformationPresenterImpl(var mView: UserValidateInformationVie
         } else {
             mView.onNameInvalid()
             mNameValidated = false
+            if (name.isEmpty()){
+                mView.onNameEmpty()
+            }
         }
 
         isReadyToValidate()
@@ -44,6 +47,9 @@ class UserValidateInformationPresenterImpl(var mView: UserValidateInformationVie
         } else {
             mView.onEmailInvalid()
             mEmailValidated = false
+            if (email.isEmpty()){
+                mView.onEmailEmpty()
+            }
         }
 
         isReadyToValidate()
@@ -56,13 +62,17 @@ class UserValidateInformationPresenterImpl(var mView: UserValidateInformationVie
         } else {
             mView.onCPFInvalid()
             mCPFValidated = false
+            if (CPF.isEmpty()){
+                mView.onCPFEmpty()
+            }
         }
 
         isReadyToValidate()
     }
 
     override fun performValidation() {
-        mView.onInformationValidated()
+        //save information
+        mView.resetViewState()
     }
 
     private fun isReadyToValidate(){
