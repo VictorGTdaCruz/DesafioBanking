@@ -25,6 +25,8 @@ class UserValidateInformationActivity : AppCompatActivity(), UserValidateInforma
         setContentView(R.layout.activity_user_validate_information)
 
         mPresenter = UserValidateInformationPresenterImpl(this, NameValidator(), EmailValidator(), CPFValidator())
+
+        supportActionBar?.setTitle(R.string.activity_label)
     }
 
     override fun onStart() {
