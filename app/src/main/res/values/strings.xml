@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Desafio Banking</string>
 
-    <string name="activity_label">Criar Cadastro</string>
+    <string name="activity_label">Sign up</string>
     
     <string name="user_name_hint">Your full name</string>
     <string name="user_email_hint">Your contact email</string>
