@@ -6,22 +6,42 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
     </style>
 
     <style name="LayoutContent">
         <item name="android:layout_margin">@dimen/margin_medium</item>
     </style>
-    
+
+    <!-- TextInput -->
     <style name="InputText" parent="Widget.Design.TextInputLayout">
         <item name="android:layout_marginBottom">@dimen/margin_medium</item>
+        <item name="android:textColorHint">@color/grey</item>
     </style>
+
+    <style name="InputTextEditText" >
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="InputTextEditText.Email" parent="InputTextEditText">
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:hint">@string/user_email_hint</item>
+    </style>
+
+    <style name="InputTextEditText.Cpf" parent="InputTextEditText">
+        <item name="android:inputType">number</item>
+        <item name="android:hint">@string/user_cpf_hint</item>
+    </style>
+
+    <!-- Button -->
 
     <style name="ButtonConfirm">
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_margin">@dimen/margin_small</item>
-        <item name="android:colorBackground">@color/colorPrimaryDark</item>
         <item name="android:text">@string/button_confirm</item>
         <item name="android:textSize">@dimen/text_xlarge</item>
     </style>
 
 </resources>
+

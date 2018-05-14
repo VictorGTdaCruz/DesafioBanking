@@ -3,6 +3,7 @@ package br.com.stone.desafiobanking.user.view
 import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.text.Editable
 import android.text.TextWatcher
@@ -136,11 +137,19 @@ class UserValidateInformationActivity : AppCompatActivity(), UserValidateInforma
     private fun btnConfirmOnClickListener(): View.OnClickListener{
         return View.OnClickListener {
             val builder = AlertDialog.Builder(this)
-            builder.setCancelable(false)
+            val dialog = builder.setCancelable(false)
                     .setTitle(getString(R.string.dialog_title))
                     .setMessage(getString(R.string.dialog_message))
                     .setPositiveButton(getString(R.string.dialog_button), btnDialogOnClickListener())
-                    .show()
+                    .create()
+
+            dialog.setOnShowListener(object: DialogInterface.OnShowListener {
+                override fun onShow(p0: DialogInterface?) {
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(ContextCompat.getColor(this@UserValidateInformationActivity, R.color.colorPrimary))
+                }
+            })
+
+            dialog.show()
         }
     }
 
